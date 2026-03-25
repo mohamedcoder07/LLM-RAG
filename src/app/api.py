@@ -21,8 +21,8 @@ def main():
     folder_path = Path.cwd()/ "datasets"#.parent.parent 
     # print(folder_path)
     embed_model = "sentence-transformers/all-MiniLM-L6-v2"
-    question = input("Quelle est votre question ?\n->")
-    print("\n")
+    question = input("Quelle est votre question ?\n-> ")
+    print("")
     generation_model = "mistral:7b"
 
     relevant_docs = load_docs(folder_path)
@@ -31,7 +31,7 @@ def main():
     vector_store = get_vector_store(chunks, model)
     retriever = get_retriever(vector_store)
     answer = generate_answer(question, retriever, generation_model)
-    print(f"Rseponse :\n->{answer}\n")
+    print(f"Response :\n->{answer}\n")
 
 if __name__ == "__main__":
     main()

@@ -1,3 +1,6 @@
+import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"]='0'
+
 from langchain_openai import OpenAI
 from langchain_ollama import ChatOllama
 

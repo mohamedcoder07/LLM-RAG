@@ -1,4 +1,6 @@
 import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"]='0'
+
 from pathlib import Path
 
 from langchain_community.vectorstores import FAISS
