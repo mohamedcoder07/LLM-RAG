@@ -1,4 +1,8 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"]='0'
+
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 def embedding_model(model_id):

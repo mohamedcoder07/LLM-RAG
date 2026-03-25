@@ -6,6 +6,7 @@ from langchain_community.document_loaders import PyMuPDFLoader
 def load_docs(folder_path):
     print("LOADING DOCS...")    
     docs_path = sorted(Path(folder_path).glob("*.pdf"))
+    print(f"Nombre de PDFs trouvés : {len(docs_path)}")
     documents = []
 
     for path in docs_path :    
@@ -13,6 +14,8 @@ def load_docs(folder_path):
         doc_loaded = loader.load()    
         documents.extend(doc_loaded) 
 
+    
+    
     return documents
 
 
