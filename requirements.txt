@@ -1,0 +1,22 @@
+# --- LangChain Ecosystem ---
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# --- LLM Providers & Integrations ---
+langchain-groq
+langchain-ollama
+langchain-huggingface
+huggingface-hub
+
+# --- Document Parsing & Extraction ---
+llama-parse
+pymupdf
+
+# --- Vector Store & Embeddings ---
+faiss-cpu
+sentence-transformers
+
+# --- Environment Management ---
+python-dotenv
