@@ -23,7 +23,7 @@ Here is how the system handles complex financial data extraction:
 
 ### 3. The "Not Found" Safety Net
 *When asked a question not covered by the document, the system refuses to guess.*
-![Terminal Not Found](assets/not_found_response.png) 
+![Terminal Not Found](assets/not_found_response.png)
 
 ## 📁 Project Structure
 
@@ -52,19 +52,25 @@ LLM-RAG/
 ├── .env                  # API Keys
 ├── .gitignore            # Git ignored files
 └── README.md
-
+```
 
 ## ⚙️ Installation
 
 1. Clone the repository
 2. Install dependencies
-   pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 3. Create a `.env` file with your API keys
-   GROQ_API_KEY=your_key
-   HUGGINGFACEHUB_API_TOKEN=your_key
-   LLAMA_CLOUD_API_KEY=your_key
+```
+GROQ_API_KEY=your_key
+HUGGINGFACEHUB_API_TOKEN=your_key
+LLAMA_CLOUD_API_KEY=your_key
+```
 
 ## 🛠️ Usage
 
 Run from the project root:
-   python src/app/main.py
+```bash
+python src/app/main.py
+```
