@@ -1,31 +1,31 @@
 import os
-from pathlib import Path
 import pickle
 import warnings
+from pathlib import Path
 warnings.filterwarnings(action="ignore")
 
 from langchain_community.document_loaders import PyMuPDFLoader, TextLoader
 from langchain_core.documents import Document
 
-from llama_parse import LlamaParse
 from unstructured.partition.pdf import partition_pdf
+from llama_parse import LlamaParse
 from io import BytesIO
+import nest_asyncio
+
+nest_asyncio.apply()
 
 RAW_MARKDOWN_FILE = "data/markdown/airfrance_brut.md"
 
 def load_docs(folder_path):
     print("[Step 1] DATA COLLECTION")
-
     docs_path = sorted(Path(folder_path).glob("*.pdf"))
 
     print(f"[INFO] Nombre de PDFs trouvés : {len(docs_path)}")   
-
 
     if Path(RAW_MARKDOWN_FILE).exists():
         loader = TextLoader(RAW_MARKDOWN_FILE, encoding="utf-8")
         documents = loader.load()
         return documents
-    
     
     documents = []
 
@@ -63,7 +63,6 @@ def load_docs(folder_path):
             Produis un bref résumé des informations clés du tableau juste avant de l'afficher. Restituer la version finale, corrigée, recalculée et parfaitement alignée du tableau au format Markdown. Extrais le reste du document normalement."""
     )
 
-    
     for path in docs_path :          
         parsed_pages = parser.load_data(str(path))
         full_markdown_text = ""
@@ -73,9 +72,10 @@ def load_docs(folder_path):
         
         with open(RAW_MARKDOWN_FILE, "w", encoding="utf-8") as f:
                 f.write(full_markdown_text)      
-
-        documents.extend([doc.to_langchain_format() for doc in parsed_pages])
         
+    loader = TextLoader(RAW_MARKDOWN_FILE, encoding="utf-8")
+    documents = loader.load()
+
     return documents
 
 

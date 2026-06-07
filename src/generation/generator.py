@@ -50,6 +50,8 @@ def generate_answer(question, retriever, model_type=None):
     )
 
     # # Call LLM via Groq
+    # raw_key = os.getenv("GROQ_API_KEY")
+
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",
         temperature=0.01,
